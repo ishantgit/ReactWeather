@@ -1,14 +1,39 @@
 var React = require('react');
-var {Link} = require('react-router');
+var {Link,IndexLink} = require('react-router');
 
 var Nav = React.createClass({
+  onSearch: function(e){
+    e.preventDefault();
+  },
   render: function(){
     return(
-      <div>
-        <h2>Nav component</h2>
-        <Link to="/">Get Weather</Link>
-        <Link to="/about">About</Link>
-        <Link to="/examples">Examples</Link>
+      <div className="top-bar">
+        <div className="top-bar-left">
+          <ul className="menu">
+            <li>ReactWeatherApp</li>
+            <li>
+              <IndexLink to="/">Get Weather</IndexLink>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/examples">Examples</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="top-bar-right">
+          <form onSubmit={this.onSearch}>
+            <ul className="menu">
+              <li>
+                <input type="search" placeholder="search Weather"/>
+              </li>
+              <li>
+                <input type="submit" className="button"/>
+              </li>
+            </ul>
+          </form>
+        </div>
       </div>
     );
   }
