@@ -1,6 +1,6 @@
 var React = require('react');
-
-var WeatherMessage = React.createClass({
+//can use arrow function if only render is there
+var WeatherMessage = (props) => ({
   render: function(){
     return(
       <h3>It is {this.props.temp} in {this.props.location}</h3>
